@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pycufsm.fsm import strip
 from pycufsm.preprocess import stress_gen
+import math as mth
 
 
 def __main__():
@@ -105,7 +106,8 @@ def __main__():
         n_eigs=n_eigs,
         sect_props=sect_props
     )
-
+    plt.plot([mth.log(y,10) for y in lengths],signature)
+    plt.show()
     # Return the important example results
     # The signature curve is simply a matter of plotting the
     # 'signature' values against the lengths
@@ -117,3 +119,4 @@ def __main__():
         'Orig_coords': nodes,
         'Deformations': shapes
     }
+__main__()
