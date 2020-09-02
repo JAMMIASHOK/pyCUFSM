@@ -1,10 +1,12 @@
 # This example presents a very simple Cee section,
 # solved for pure compression,
 # in the Imperial unit system
-
+import sys
+sys.path.append("C:\\Users\\ashok\\Source\\Repos\\pyCUFSM\\pycufsm")
+import matplotlib.pyplot as plt
 import numpy as np
-from pyCUFSM.fsm import strip
-from pyCUFSM.preprocess import stress_gen
+from pycufsm.fsm import strip
+from pycufsm.preprocess import stress_gen
 
 
 def __main__():

@@ -1,11 +1,13 @@
 # This example presents a very simple Zed section,
 # solved for pure bending about the X-axis,
 # in the Metric unit system
-
+import matplotlib.pyplot as plt 
 import numpy as np
-from pyCUFSM.fsm import strip
-from pyCUFSM.preprocess import stress_gen
+from pycufsm.fsm import strip
+from pycufsm.preprocess import stress_gen
+import math as mth
 
+print('hello')
 
 def __main__():
     # Define an isotropic material with E = 203,000 MPa and nu = 0.3
@@ -48,7 +50,7 @@ def __main__():
         'orth': 2,
         'norm': 0,
     }
-
+    
     # Simply-supported boundary conditions
     b_c = 'S-S'
 
@@ -73,7 +75,7 @@ def __main__():
         'I11': 16154036,
         'I22': 944639
     }
-
+    
     # Generate the stress points assuming 500 MPa yield and X-axis bending
     nodes_p = stress_gen(
         nodes=nodes,
@@ -102,7 +104,8 @@ def __main__():
         n_eigs=n_eigs,
         sect_props=sect_props
     )
-
+    plt.plot([mth.log(y,10) for y in lengths],signature)
+    plt.show()
     # Return the important example results
     # The signature curve is simply a matter of plotting the
     # 'signature' values against the lengths
@@ -114,3 +117,6 @@ def __main__():
         'Orig_coords': nodes,
         'Deformations': shapes
     }
+
+__main__()
+    
